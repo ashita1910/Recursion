@@ -8,4 +8,14 @@
 package recursion;
 
 public class TowerOfHanoiSolver {
+    public static void showMove(char fromPeg, char toPeg){
+        System.out.println("Move disk from Peg " + fromPeg + " " + "to " + toPeg + " ");
+    }
+    public void hanoi(int numberOfDisks, char fromPeg, char toPeg, char viaPeg){
+        if(numberOfDisks == 0)
+            return;
+        hanoi(numberOfDisks - 1, fromPeg, viaPeg, toPeg);
+        showMove(fromPeg, toPeg);
+        hanoi(numberOfDisks - 1, viaPeg, toPeg, fromPeg);
+    }
 }
